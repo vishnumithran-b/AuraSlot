@@ -5,7 +5,7 @@
 
 A complete, production-grade appointment booking web application built with **React**, **Vite**, **TypeScript**, and **Tailwind CSS**. Designed using the **"Neon Night Glass"** dark glassmorphism theme with 100% client-side `localStorage` persistence.
 
-![AuraSlot Banner](https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80)
+![AuraSlot Banner]
 
 ---
 
