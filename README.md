@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # AuraSlot
 =======
-# AuraSlot - Neon Night Glass Appointment Booking System
+# AuraSlot -Appointment Booking System
 
 A complete, production-grade appointment booking web application built with **React**, **Vite**, **TypeScript**, and **Tailwind CSS**. Designed using the **"Neon Night Glass"** dark glassmorphism theme with 100% client-side `localStorage` persistence.
 
