@@ -1,0 +1,368 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary-red: #DC2626;
+    --primary-red-dark: #B91C1C;
+    --primary-red-deep: #991B1B;
+    --accent-red: #EF4444;
+    --accent-rose: #F43F5E;
+    --accent-coral: #FB7185;
+    --amber-gold: #F59E0B;
+    --amber-light: #FEF3C7;
+    --emerald-mint: #10B981;
+    --emerald-light: #D1FAE5;
+    --sapphire-blue: #3B82F6;
+    --violet-accent: #8B5CF6;
+    --cream-base: #FAF6EE;
+    --cream-surface: #FFFDF9;
+    --cream-card: rgba(255, 255, 255, 0.92);
+    --text-primary: #1C1917;
+    --text-muted: #78716C;
+    --text-subtle: #A8A29E;
+    --success: #059669;
+    --error: #DC2626;
+    --warning: #D97706;
+  }
+
+  body {
+    font-family: 'Outfit', 'Poppins', sans-serif;
+    background-color: #FAF6EE;
+    color: #1C1917;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Glassmorphic Core Styles - Warm Cream with Vibrant Highlights */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 38, 38, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 12px 36px -10px rgba(185, 28, 28, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(220, 38, 38, 0.1);
+  border-radius: 20px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(220, 38, 38, 0.14);
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(185, 28, 28, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(220, 38, 38, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -8px rgba(220, 38, 38, 0.16), 0 0 20px rgba(244, 63, 94, 0.08);
+}
+
+/* Input Fields */
+.glass-input {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 14px;
+  color: #1C1917;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: #FFFFFF;
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.18), 0 0 20px rgba(244, 63, 94, 0.12);
+  outline: none;
+}
+
+.glass-input.input-error {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.25);
+}
+
+/* Radiant Primary Button with Rich Gradient & Shimmer */
+.btn-primary {
+  background: linear-gradient(135deg, #B91C1C 0%, #DC2626 45%, #F43F5E 80%, #FB923C 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(220, 38, 38, 0.35), 0 0 12px rgba(244, 63, 94, 0.2);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.5s ease;
+}
+
+.btn-primary:hover:not(:disabled)::after {
+  left: 140%;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 28px rgba(220, 38, 38, 0.45), 0 0 20px rgba(251, 146, 60, 0.3);
+  filter: brightness(1.04);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+
+/* Secondary Button with Cream & Ruby Border */
+.btn-secondary {
+  background: rgba(254, 242, 242, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #B91C1C;
+  font-weight: 600;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(254, 226, 226, 0.98);
+  border-color: #DC2626;
+  color: #991B1B;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Time Slot Chips */
+.slot-chip {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  border-radius: 12px;
+  color: #1C1917;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slot-chip:hover:not(:disabled):not(.slot-selected) {
+  background: rgba(254, 242, 242, 0.95);
+  border-color: #DC2626;
+  color: #B91C1C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.18);
+}
+
+.slot-chip.slot-selected {
+  background: linear-gradient(135deg, #B91C1C 0%, #DC2626 60%, #F43F5E 100%);
+  border-color: #DC2626;
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4), 0 0 10px rgba(244, 63, 94, 0.25);
+  transform: scale(1.03);
+}
+
+.slot-chip.slot-booked,
+.slot-chip:disabled {
+  background: rgba(231, 229, 228, 0.55);
+  border-color: rgba(214, 211, 209, 0.6);
+  color: #A8A29E;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  filter: blur(0.2px);
+}
+
+/* Status Badges */
+.badge-upcoming {
+  background: linear-gradient(135deg, rgba(254, 242, 242, 0.95) 0%, rgba(255, 228, 230, 0.95) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  color: #B91C1C;
+  font-weight: 700;
+}
+
+.badge-completed {
+  background: linear-gradient(135deg, rgba(236, 253, 245, 0.95) 0%, rgba(209, 250, 229, 0.95) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
+  font-weight: 700;
+}
+
+.badge-cancelled {
+  background: rgba(245, 245, 244, 0.95);
+  border: 1px solid rgba(168, 162, 158, 0.35);
+  color: #78716C;
+  font-weight: 700;
+}
+
+/* Category Badges with Vivid Color Pop */
+.badge-cat-general {
+  background: #FFF1F2;
+  color: #E11D48;
+  border: 1px solid #FECDD3;
+}
+
+.badge-cat-cardio {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+}
+
+.badge-cat-dental {
+  background: #ECFEFF;
+  color: #0891B2;
+  border: 1px solid #A5F3FC;
+}
+
+.badge-cat-derma {
+  background: #FDF2F8;
+  color: #DB2777;
+  border: 1px solid #FBCFE8;
+}
+
+.badge-cat-physio {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #C7D2FE;
+}
+
+.badge-cat-wellness {
+  background: #FFFBEB;
+  color: #D97706;
+  border: 1px solid #FDE68A;
+}
+
+.badge-cat-nutrition {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+/* Glow Elements & Animations */
+@keyframes floatGlowSlow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(35px, -45px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.94);
+  }
+}
+
+@keyframes floatGlowSlowAlt {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-45px, 35px) scale(1.08);
+  }
+  66% {
+    transform: translate(30px, -40px) scale(0.92);
+  }
+}
+
+.animate-glow-1 {
+  animation: floatGlowSlow 16s ease-in-out infinite;
+}
+
+.animate-glow-2 {
+  animation: floatGlowSlowAlt 20s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 40%, #F43F5E 75%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 45%, #F43F5E 80%, #FB923C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #B45309 0%, #D97706 45%, #F59E0B 80%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #047857 0%, #059669 45%, #10B981 80%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple-pink {
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 45%, #F43F5E 80%, #FB923C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar in Warm Cream & Crimson */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(245, 238, 228, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #DC2626, #F43F5E);
+  border-radius: 9999px;
+  border: 2px solid rgba(250, 246, 238, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #B91C1C, #DC2626);
+}
+
+/* Date input custom styling for cream & red theme */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.2) sepia(1) saturate(5) hue-rotate(330deg);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Mobile backdrop performance fallback */
+@media (max-width: 640px) {
+  .glass-panel, .glass-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
